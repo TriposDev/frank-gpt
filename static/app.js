@@ -39,7 +39,7 @@ $(() => {
             return `<div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group bg-gray-50 dark:bg-[#444654]">
         <div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0">
         
-            <image id="image0_3_64" style="width: 7%; height: 7%;" src="../static/logo.png" />
+            <image id="image0_3_64" style="width: 7%; height: 7%;" src="static/logo.png" />
            
             <div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]">
                 <div class="flex flex-grow flex-col gap-3">
