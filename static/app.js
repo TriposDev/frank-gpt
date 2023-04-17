@@ -96,8 +96,7 @@ $(() => {
     `Non hai un cazzo di meglio da fare?!`,
     `Mo questo deve pure cagare il cazzo!`,
     `Non ho voglia di fare un cazzo oggi.`,
-    `Non è un mio problema!`,
-    `Cazzo saluti?!`
+    `Non è un mio problema!`
     
 
 ],
@@ -130,7 +129,7 @@ $(() => {
 
 
 
-            console.log("val", val)
+            
             if (val == "") return false;
             $('#text-area').prop("disabled", true)
             $('#main-page').hide();
@@ -145,42 +144,56 @@ $(() => {
             $('#chat-box').append(botMsgElem)
             
             scrollBox();
-
+               
+                val=val.replace('\n','');
+                val=' '+val+' ';
             //funzione riposta migliore
             function bestOptions(){
-                if(val.toLowerCase().includes("buongiorno")){
+                if(val.toLowerCase().includes(" buongiorno ")){
                     return "Buongiorno un cazzo!";
                 }
 
-                if(val.toLowerCase().includes("ciao")||val.toLowerCase().includes("buonasera")){
+                if(val.toLowerCase().includes(" ciao ")||val.toLowerCase().includes(" buonasera ")){
                     return "Cazzo saluti?!";
                 }
 
-                if(val.toLowerCase().includes("come stai")){
+                if(val.toLowerCase().includes(" come stai ")){
                     return "Fatti i cazzi tuoi!";
                 }
                 
-                if(val.toLowerCase().includes("zio")){
+                if(val.toLowerCase().includes(" zio ")){
                     return "Zio?! E tu chi cazzo sei?!";
                 }
 
-                if(val.toLowerCase().includes("come si la pizza")){
+                if(val.toLowerCase().includes(" come si fa la pizza ")){
                     return "Ma io che cazzo ne so";
                 }
 
-                if(val.toLowerCase().includes("salve")){
+                if(val.toLowerCase().includes(" dio ") || val.toLowerCase().includes(" madonna ") ){
+                    return "Non dirlo a me!";
+                }
+
+                if(val.toLowerCase().includes(" dove ") || val.toLowerCase().includes(" abiti ") ){
+                    return "Tu fatti i cazzi tuoi!";
+                }
+
+                if(val.toLowerCase().includes(" bro ") || val.toLowerCase().includes(" frate ")){
+                    return "E tu chi cazzo sei adesso? Di sicuro io non sono tuo zio!";
+                }
+
+                if(val.toLowerCase().includes(" salve ")){
                     return "Salve! Testa di cazzo!";
                 }
 
-                if(val.toLowerCase().includes("come") && val.toLowerCase().includes("chiami") || val.toLowerCase().includes("chi") && val.toLowerCase().includes("sei")){
+                if(val.toLowerCase().includes(" come ") && val.toLowerCase().includes(" chiami") || val.toLowerCase().includes(" chi ") && val.toLowerCase().includes(" sei")){
                     return "Sono Frank-GPT, una nuovo intelligenza artificiale in grado di rispondere a qualsiasi tua richiesta! Però vedi di non cagare troppo il cazzo!";
                 }
 
-                if(val.toLowerCase().includes("vaffanculo")  || val.toLowerCase().includes("fare inculo") || val.toLowerCase().includes("fanculo")){
+                if(val.toLowerCase().includes(" vaffanculo ")  || val.toLowerCase().includes(" fare inculo ") || val.toLowerCase().includes(" fanculo ")){
                     return APP.textArray[7];
                 }
 
-                if(val.toLowerCase().includes("arrivederci")  || val.toLowerCase().includes("vado via") || val.toLowerCase().includes("ciao ciao")){
+                if(val.toLowerCase().includes(" arrivederci ")  || val.toLowerCase().includes(" vado via ") || val.toLowerCase().includes(" ciao ciao ")){
                     return "BRAVOO! Vai fuori dai coglioni!";
                 }
                 
