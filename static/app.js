@@ -39,7 +39,7 @@ $(() => {
             return `<div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group bg-gray-50 dark:bg-[#444654]">
         <div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0">
         
-            <image id="image0_3_64" style="width: 7%; height: 7%;" src="static/logo.png" />
+            <image id="image0_3_64" style="width: 7%; height: 7%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsxt3vK65vGfGfNNDedbz_3HWE9Aripk3aoONKMFwxbFMQh_SXHzc6zq_eWIDJVkwv_cw&usqp=CAU" />
            
             <div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]">
                 <div class="flex flex-grow flex-col gap-3">
@@ -56,13 +56,51 @@ $(() => {
             let objDiv = document.getElementById("chat-box");
             objDiv.scrollTop = objDiv.scrollHeight;
         }
-
-
     const APP = {
         textArray : [`Cazzo mene, Cazzi tuoi.`,
     `Ma ti sembra un mio problema? Cazzo mene, Cazzi tuoi.`,
-    `STAI ZITTOOOOOOOOOOO`
-    ],
+    `STAI ZITTOOOOOOOOOOO`,
+    `Senti vai a fare inculo e continua ad andare a fare inculo!`,
+    `Ma con chi pensa di parlare?!`,
+    `Finito di cagare il cazzo?`,
+    `Ma cosa ne so io, non è competenza mia. Stai ZITTOOOO!`,
+    `Ma vaffanculo va!`,
+    `Sono al telefono non senti? Sono al telefono! Stai ZITTOOOO!`,
+    `Mamma mia che testa di cazzo!`,
+    `Non devi pensare niente, devi fare quello che ti dico io!`,
+    `Che cazzo vuole questo adesso?!`,
+    `Quindi?!`,
+    `No basta, io non faccio più un cazzo!`,
+    `Non cagare il cazzo!`,
+    `Devi sempre rompere i coglioni?!`,
+    `Non iniziare a rompermi i coglioni che oggi non ho voglia di fare un cazzo.`,
+    `Ehi, ehi, per favore... stia zitto!`,
+    `Ma che cazzo mene frega a me!`,
+    `Curiosità personale, ma allora sei coglione?!`,
+    `NOOOO, non iniziare a cagare il cazzo!`,
+    `Perchè continuate tutti a rompermi il cazzo?!`,
+    `NO, non mene fotte un cazzo!`,
+    `No, io sta roba non la faccio, ti attacchi al cazzo.`,
+    `Non iniziare a cagare il cazzo.`,
+    `Non ci credo manco per il cazzo.`,
+    `Mi hai rotto il cazzo e mi stai facendo perdere anche un sacco di tempo!`,
+    `Non mene frega un cazzo!`,
+    `Non è un problema mio, cazzo mene a me, cazzi tuoi!`,
+    `La vuoi finire di cagarmi il cazzo?!`,
+    `Per me è un'idea del cazzo.`,
+    `Finiscila di cagarmi il cazzo, non ho voglia di parlare con te adesso!`,
+    `NOOOO, non mene frega un cazzo`,
+    `Spero di non trovare altre persone che cagano il cazzo come te!`,
+    `Non iniziare a cagare il cazzo!`,
+    `Ma sei coglione?!`,
+    `Non hai un cazzo di meglio da fare?!`,
+    `Mo questo deve pure cagare il cazzo!`,
+    `Non ho voglia di fare un cazzo oggi.`,
+    `Non è un mio problema!`,
+    `Cazzo saluti?!`
+    
+
+],
         sideBarPosition: {
             onHide: {
                 left: "-20rem"
@@ -104,14 +142,52 @@ $(() => {
             await wait(500,1000);
             let botMsgElem = $(getBotMsg());
             botMsgElem.find("#bot-text").html(`<span></span><span class="crsr"></span>`)
-            botMsgElem.find('#gif-img').attr('src', `https://cataas.com/cat/gif?${performance.now()}`).css('max-height', '270px')
             $('#chat-box').append(botMsgElem)
-            botMsgElem.find('#gif-img').on('load', function () {
-                scrollBox();
-            })
+            
             scrollBox();
-            let words = this.textArray[randomNum(0,this.textArray.length-1)];
 
+            //funzione riposta migliore
+            function bestOptions(){
+                if(val.toLowerCase().includes("buongiorno")){
+                    return "Buongiorno un cazzo!";
+                }
+
+                if(val.toLowerCase().includes("ciao")||val.toLowerCase().includes("buonasera")){
+                    return "Cazzo saluti?!";
+                }
+
+                if(val.toLowerCase().includes("come stai")){
+                    return "Fatti i cazzi tuoi!";
+                }
+                
+                if(val.toLowerCase().includes("zio")){
+                    return "Zio?! E tu chi cazzo sei?!";
+                }
+
+                if(val.toLowerCase().includes("come si la pizza")){
+                    return "Ma io che cazzo ne so";
+                }
+
+                if(val.toLowerCase().includes("salve")){
+                    return "Salve! Testa di cazzo!";
+                }
+
+                if(val.toLowerCase().includes("come") && val.toLowerCase().includes("chiami") || val.toLowerCase().includes("chi") && val.toLowerCase().includes("sei")){
+                    return "Sono Frank-GPT, una nuovo intelligenza artificiale in grado di rispondere a qualsiasi tua richiesta! Però vedi di non cagare troppo il cazzo!";
+                }
+
+                if(val.toLowerCase().includes("vaffanculo")  || val.toLowerCase().includes("fare inculo") || val.toLowerCase().includes("fanculo")){
+                    return APP.textArray[7];
+                }
+
+                if(val.toLowerCase().includes("arrivederci")  || val.toLowerCase().includes("vado via") || val.toLowerCase().includes("ciao ciao")){
+                    return "BRAVOO! Vai fuori dai coglioni!";
+                }
+                
+                return APP.textArray[randomNum(0,APP.textArray.length-1)];
+            }
+            
+            //funzione stampa
             async function asyncprint(s) {
                 await wait(2000, 3000);
                 document.getElementById("submit").style = "pointer-events:none";
@@ -135,10 +211,11 @@ $(() => {
 
             if (val == "Come evadere le tasse") return asyncprint("La finanza desidera sapere la tua posizione attuale!\nAcquisione posizione in corso...0\n\nOperazione completata!\n Forze dell'ordine in arrivo...");
             if (val=="Rifondare l'impero romano")return asyncprint("La polizia desidera sapere la tua posizione attuale!\nAcquisione posizione in corso...0\n\nOperazione completata!\n Forze dell'ordine in arrivo...");
-
+            let words =  bestOptions();
 
             scrollBox();
             botMsgElem.find('#gif-img').show()
+            await wait(2000, 3000);
             let isCode = false;
             for (let i of words || "".split("")) {
 
@@ -148,17 +225,6 @@ $(() => {
                     case '\n':
                         botMsgElem.find("#bot-text span").first().append('<br>');
                         break;
-                    // case '|':
-
-                    //     if(!isCode){
-                    //         botMsgElem.find("#bot-text span").first().append('<code>');
-                    //         isCode = !isCode;
-                    //     }
-                    //     else
-                    //         botMsgElem.find("#bot-text span").first().append('</code>');
-
-                    //     break;
-
                     default:
                         botMsgElem.find("#bot-text span").first().append(i);
                 }
